@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Biblioverse</title>
+<style>
+  body {
+    background-color: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: #c40ce8;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+  }
+  header img {
+    height: 90px;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  main {
+    padding: 40px;
+    max-width: 600px;
+    margin: auto;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+  }
+  h2, p {
+    text-align: center;
+  }
+  form {
+    margin-top: 20px;
+  }
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+  }
+  button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #da0ce8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  button:hover {
+    background-color: #9600a7;
+  }
+  footer {
+    text-align: center;
+    background-color: #c40ce8;
+    padding: 30px;
+    margin-top: 0px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Logo">
+  <h2>Suggest a Book</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="suggest.html">Suggest</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Share Your Book Ideas</h2>
+  <p>Know a great book that isn’t listed on our website? Let us know below!</p>
+
+  <form onsubmit="return validateForm()">
+    <label for="title">Book Title:</label>
+    <input type="text" id="title" name="title" placeholder="Enter book title">
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" placeholder="Enter author name">
+
+    <label for="comment">Reason or Comment:</label>
+    <textarea id="comment" name="comment" rows="4" placeholder="Why should we add this book?"></textarea>
+
+    <button type="submit">Submit Suggestion</button>
+  </form>
+</main>
+
+<footer>
+  © 2025 Prebook | Privacy Policy | Terms of Use
+</footer>
+
+<script>
+function validateForm() {
+  let title = document.getElementById("title");
+  let author = document.getElementById("author");
+  if (title.value.trim() === "" || author.value.trim() === "") {
+    alert("Please fill out both the Title and Author fields!");
+    return false;
+  }
+  alert("Thank you for your suggestion!");
+  return true;
+}
+
+function searchBook() {
+  let input = document.getElementById("search");
+  if (!input) return;
+  let filter = input.value.toLowerCase();
+  let rows = document.querySelectorAll("table tr");
+  for (let i = 1; i < rows.length; i++) {
+    rows[i].style.display = rows[i].textContent.toLowerCase().includes(filter) ? "" : "none";
+  }
+}
+</script>
+
+</body>
+</html>
+
+

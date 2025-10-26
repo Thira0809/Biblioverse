@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Biblioverse</title>
+<style>
+  body{
+    background:#111;
+    color:white;
+    font-family:Arial;
+    margin:0
+  }
+  header {
+    background-color: #c40ce8;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+  }
+  header img {
+    height: 90px;
+  }
+  nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none
+  }
+  nav a:hover{
+    text-decoration:underline
+  }
+  main{
+    padding:20px
+  }
+  ul{
+    list-style:square
+  }
+  video{
+    width:100%;
+    max-width:400px;
+    margin-top:15px
+  }
+  footer {
+    text-align: center;
+    background-color: #c40ce8;
+    padding: 30px;
+    margin-top: 0px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <img src="logo.png" alt="Logo">
+  <h2>Contact Us</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="suggest.html">Suggest</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <p>We’d love to hear from you! Whether you have a question about our collection, want to suggest a new book, or simply wish to share your reading experience, we’re here to listen.</p>
+  <p>Reach out to us through the form below or send us an email — our team will get back to you as soon as possible.</p>
+  <p>At <b>Biblioverse</b>, we believe every reader’s voice matters, and your feedback helps us grow our library to better serve you.</p>
+  
+  <ul>
+    <li>Email: <a href="mailto:prebook@email.com">prebook@email.com</a></li>
+    <li>Phone: <a href="tel:+60101234567">+60 10-1234 567</a></li>
+    <li>Social Media: <a href="#">Facebook</a> |<a href="#">Instagram</a> | <a href="#">X</a></li>
+  </ul>
+  
+  <h3>Know Us More</h3>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/zsUCJPIIbgA?si=4XDI6NIj6GtqxYIK" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</main>
+
+<footer>
+  © 2025 Prebook | Privacy Policy | Terms of Use
+</footer>
+
+<script>
+function validateForm() {
+  let title = document.getElementById("title");
+  let author = document.getElementById("author");
+  if (title && author && (title.value.trim() === "" || author.value.trim() === "")) {
+    alert("Please fill out all required fields!");
+    return false;
+  }
+  return true;
+}
+function searchBook() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let rows = document.querySelectorAll("table tr");
+  for (let i = 1; i < rows.length; i++) {
+    rows[i].style.display = rows[i].textContent.toLowerCase().includes(input) ? "" : "none";
+  }
+}
+</script>
+</body>
+</html>

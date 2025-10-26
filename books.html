@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Biblioverse</title>
+<style>
+  body {
+    background:#111;color:white;
+    font-family:Arial;
+    margin:0
+  }
+  header {
+    background-color: #c40ce8;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+  }
+  header img {
+    height: 90px;
+    width: 150px;
+  }
+  nav a {
+    color:white;
+    margin:0 10px;
+    text-decoration:none
+  }
+  nav a:hover{
+    text-decoration:underline
+  }
+  main {
+    padding:20px
+  }
+  table {
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px
+  }
+  th, td {
+    border:1px solid #444;
+    padding:10px;
+    text-align:left
+  }
+  th {
+    background:#333
+  }
+  img {
+    width:60px
+  }
+  input[type=text]{
+    padding:5px;
+    width:50%;
+    margin-top:10px
+  }
+  footer {
+    text-align: center;
+    background-color: #c40ce8;
+    padding: 30px;
+    margin-top: 0px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <img src="logo.png" alt="Logo">
+  <h2>Our Book Collection</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="suggest.html">Suggest</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <label>Search: </label>
+  <input type="text" id="search" onkeyup="searchBook()" placeholder="Search by title or author...">
+
+  <table>
+    <tr>
+      <th>Cover</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Link</th>
+    </tr>
+    <tr>
+      <td><a href="#"><img src="book1.jpg"></a></td>
+      <td>The Great Gatsby</td>
+      <td>F. Scott Fitzgerald</td>
+      <td><a href="#">Read</a> / <a href="#">Buy</a></td>
+    </tr>
+    <tr>
+      <td><a href="#"><img src="book2.jpg"></a></td><td>1984</td>
+      <td>George Orwell</td>
+      <td><a href="#">Read</a> / <a href="#">Buy</a></td>
+    </tr>
+    <tr>
+      <td><a href="#"><img src="book3.jpg"></a></td>
+      <td>To Kill a Mockingbird</td>
+      <td>Harper Lee</td>
+      <td><a href="#">Read</a> / <a href="#">Buy</a></td>
+    </tr>
+    <tr>
+      <td><a href="#"><img src="book4.jpg"></a></td>
+      <td>Puzzles.</td>
+      <td>Harper Russo</td>
+      <td><a href="#">Read</a> / <a href="#">Buy</a></td>
+    </tr>
+  </table>
+  <br>
+  <a href="#" class="previous">&laquo; Previous</a>
+  <a href="#" class="next">1</a>
+  <a href="#" class="next">2</a>
+  <a href="#" class="next">3</a>
+  <a href="#" class="next">4</a>
+  <a href="#" class="next">5</a>
+  <a href="#" class="next">....</a>
+  <a href="#" class="next">Next &raquo;</a>
+
+</main>
+
+<footer>
+  © 2025 Prebook | Privacy Policy | Terms of Use
+</footer>
+
+<script>
+function validateForm() {
+  let title = document.getElementById("title");
+  let author = document.getElementById("author");
+  if (title && author && (title.value.trim() === "" || author.value.trim() === "")) {
+    alert("Please fill out all required fields!");
+    return false;
+  }
+  return true;
+}
+function searchBook() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let rows = document.querySelectorAll("table tr");
+  for (let i = 1; i < rows.length; i++) {
+    rows[i].style.display = rows[i].textContent.toLowerCase().includes(input) ? "" : "none";
+  }
+}
+</script>
+</body>
+</html>
+

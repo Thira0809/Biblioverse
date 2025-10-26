@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Biblioverse</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: #c40ce8;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+  }
+  header img {
+    height: 90px;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #222;
+  }
+  .hero img {
+    width: 250px;
+    border-radius: 8px;
+  }
+  .hero-text {
+    max-width: 50%;
+  }
+  button {
+    background-color: #da0ce8;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #9600a7;
+  }
+  footer {
+    text-align: center;
+    background-color: #c40ce8;
+    padding: 30px;
+    margin-top: 0px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Logo">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="suggest.html">Suggest</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>About Us</h1>
+    <p>Welcome to <b>Biblioverse</b>, your all-in-one destination for book discovery and reading. Whether you’re searching for an e-book to dive into instantly or looking to purchase a physical copy for your shelf, we’ve got you covered.</p>
+    <p>Can’t find the book you’re looking for? Simply share your suggestion on our Suggestion Page, and we’ll work to bring it to you. <b>Biblioverse</b> is built for readers, by readers — a community where stories never end and every reader finds their perfect match.</p>
+    <br>
+    <hr>
+    <br>
+    <h2>Featured Book of the Week: The Silent Pages</h2>
+    <p>Dive into The Silent Pages, a heartwarming story about resilience, hope, and the power of words. Follow the journey of a young writer who rediscovers her voice through letters left behind in forgotten books. This novel has captured the hearts of readers around the world with its beautifully written narrative and emotional depth.</p>
+    <p>If you love stories that stay with you long after the last page, this is a must-read. Don’t miss your chance to own it — click Buy Now and start your reading journey today!</p>
+    <button>Buy Now</button>
+  </div>
+  <img src="bookcover.jpg" alt="Book Cover">
+</section>
+
+<footer>
+  © 2025 Prebook | Privacy Policy | Terms of Use
+</footer>
+
+<script>
+function validateForm() {
+  let title = document.getElementById("title");
+  let author = document.getElementById("author");
+  if (title && author && (title.value.trim() === "" || author.value.trim() === "")) {
+    alert("Please fill out all required fields!");
+    return false;
+  }
+  return true;
+}
+function searchBook() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let rows = document.querySelectorAll("table tr");
+  for (let i = 1; i < rows.length; i++) {
+    rows[i].style.display = rows[i].textContent.toLowerCase().includes(input) ? "" : "none";
+  }
+}
+</script>
+
+</body>
+</html>
